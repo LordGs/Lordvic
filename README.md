@@ -1,4 +1,4 @@
-# 🌐 Kyo's Portfolio Website
+# 🌐 Lordvic's Portfolio Website
 
 A personal portfolio built using **Laravel**, **React**, **TailwindCSS**, and **MySQL**.  
 This project showcases my web development work, coding projects, and personal background.
