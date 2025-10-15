@@ -32,7 +32,7 @@ To run this project locally:
 git clone https://github.com/LordGs/Lordvic.git
 
 # Enter the project directory
-cd <repo-name>
+cd <Lordvic>
 
 # Install dependencies
 composer install
