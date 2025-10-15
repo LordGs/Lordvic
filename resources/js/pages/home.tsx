@@ -5,10 +5,15 @@ import { FaHandshake, FaDownload } from "react-icons/fa";
 import { HiOutlineDocumentSearch } from "react-icons/hi";
 import { motion, useAnimation } from "framer-motion";
 import { useCallback } from "react";
-
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+
+// Imported Pages
+import AboutSection from "./about";
+import FeedbacksSection from "./feedbacks";
+import ProjectSection from "./projects";
+import ContactSection from "./contact";
 
 AOS.init({
   once: true, // Run animation once (optional)
@@ -32,7 +37,7 @@ export default function Welcome() {
         <>
             <Head title="Learning JS and Tailwind day 1 | Home" />
             {/* Whole Body */}
-            <div className="flex flex-col bg-[var(--color-background-light)]">
+            <div className="bg-[var(--color-background-light)]">
                 <nav className="flex justify-between w-full text-[var(--text-Dark)] min-h-20 px-10 shadow-2xl fixed top-0 left-0 bg-[var(--color-background-light)] z-10">
                     {/* left side */}
                     <div className="flex text-3xl space-x-5 font-extrabold items-center justify-center">
@@ -52,11 +57,12 @@ export default function Welcome() {
                     {/* Middle */}
                     <div className="flex flex-wrap justify-center items-center text-[var(--text-Dark)] font-bold text-xs sm:text-sm md:text-base">
                         {[
-                            { label: "Contact", href: "/" },
-                            { label: "Projects", href: "/" },
-                            { label: "Socials", href: "/" },
-                            { label: "Testimontials", href: "/" },
-                            { label: "Education", href: "/" },
+                            { label: "Me", href: "#Banner" },
+                            { label: "About", href: "#About" },
+                            { label: "Feedbacks", href: "#Feedbacks" },
+                            { label: "Projects", href: "#Project" },
+                            { label: "Contact", href: "#Contact" },
+                            
                         ].map((item, index) => (
                             <div key={item.label} className="flex items-center my-2">
                                 {index !== 0 && (
@@ -71,8 +77,9 @@ export default function Welcome() {
                                 )}
                                 <Link
                                     href={item.href}
-                                    className="px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-br-2xl rounded-tl-2xl transition-all duration-300 hover:scale-110 hover:text-white hover:bg-accent"
+                                    className="text-2xs w-35 text-center sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-br-2xl rounded-tl-2xl transition-all duration-300 hover:text-white hover:bg-accent"
                                 >
+
                                     {item.label}
                                 </Link>
                             </div>
@@ -86,7 +93,7 @@ export default function Welcome() {
                     </div>
                 </nav>
                 {/* Banner */}
-                <section className="flex text-[var(--text-Dark)] w-full items-center justify-center py-10 min-h-[89vh]">
+                <section id="Banner" className="flex text-[var(--text-Dark)] w-full items-center justify-center py-10 min-h-[89vh]">
                     {/* bg-[url('/images/lordvic-bg.png')] */}
                     <div className="flex justify-end w-1/2 pr-10 bg-cover bg-center" data-aos="fade-in-up">
                         <motion.img
@@ -120,30 +127,36 @@ export default function Welcome() {
                         </div>
                     </div>
 
-
                 </section>
 
                 <div className="flex text-[var(--text-Dark)] w-full justify-center px-35 py-10 animate-bounce">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
+                    <Link href="/#About">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </Link>
                 </div>
-
-                <section className="text-black text-9xl">
-                    <h1 data-aos="fade-in-up">testing</h1>
-                    <h1 data-aos="fade-in-up">testing</h1>
-                    <h1 data-aos="fade-in-up">testing</h1>
-                    <h1 data-aos="fade-in-up">testing</h1>
-                    <h1 data-aos="fade-in-up">testing</h1>
-                    <h1 data-aos="fade-in-up">testing</h1>
-                    <h1 data-aos="fade-in-up">testing</h1>
-                    <h1 data-aos="fade-in-up">testing</h1>
-                    <h1 data-aos="fade-in-up">testing</h1>
-                    <h1 data-aos="fade-in-up">testing</h1>
-                    <h1 data-aos="fade-in-up">testing</h1>
+                {/* About */}
+                <section id="About" className="text-black text-9xl pt-30">
+                    <AboutSection />
                 </section>
 
+                {/* Feedbacks */}
+                <section id="Feedbacks" className="text-black text-9xl pt-30">
+                    <FeedbacksSection />
+                </section>
 
+                {/* Projects */}
+                <section id="Project" className="text-black text-9xl pt-30">
+                    <ProjectSection />
+                </section>
+
+                {/* Contact */}
+                <section id="Contact" className="text-black text-9xl pt-30">
+                    <ContactSection />
+                </section>
+
+            
 
             </div>
 
